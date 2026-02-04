@@ -84,3 +84,70 @@ footer {
     top: 100vh;
   }
 }
+
+.mensaje-body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #1a0000, #000);
+  font-family: 'Impact', 'Arial Black', sans-serif;
+}
+
+/* Fondo animado tipo humo/alerta */
+.bg {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,0,0,0.08) 0px,
+      rgba(255,0,0,0.08) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  animation: bgMove 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes bgMove {
+  from { background-position: 0 0; }
+  to   { background-position: 400px 400px; }
+}
+
+/* Texto principal */
+.mensaje {
+  position: absolute;
+  top: -30%;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(3rem, 6vw, 6rem);
+  letter-spacing: 4px;
+  z-index: 1;
+  animation: bajarSuave 6s ease-in-out infinite;
+}
+
+/* Movimiento de arriba hacia abajo */
+@keyframes bajarSuave {
+  0%   { top: -30%; opacity: 0; }
+  20%  { opacity: 1; }
+  50%  { top: 35%; }
+  80%  { opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+
+/* Efecto neón + parpadeo leve */
+.neon {
+  color: #ff2a2a;
+  text-shadow:
+    0 0 10px #ff2a2a,
+    0 0 20px #ff0000,
+    0 0 40px #ff0000,
+    0 0 80px #800000;
+  animation: bajarSuave 6s ease-in-out infinite,
+             flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  from { opacity: 1; }
+  to   { opacity: 0.85; }
+}
