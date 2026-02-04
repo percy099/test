@@ -40,3 +40,47 @@ footer {
   padding: 1rem;
   background: #eaeaea;
 }
+
+.danger-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 22px;
+  background: #8b0000;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 2px solid black;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.mensaje-body {
+  background: black;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.mensaje {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: red;
+  animation: bajar 6s linear infinite;
+}
+
+@keyframes bajar {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 100vh;
+  }
+}
