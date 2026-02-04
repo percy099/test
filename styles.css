@@ -1,153 +1,65 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f6f8;
-  color: #333;
-}
-
-header {
-  background: #24292f;
-  color: white;
-  padding: 2rem;
-  text-align: center;
-}
-
-main {
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-button {
-  padding: 10px 16px;
-  background: #2da44e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #238636;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #eaeaea;
-}
-
-.danger-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 22px;
-  background: #8b0000;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  border: 2px solid black;
-  animation: pulse 1.2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.mensaje-body {
-  background: black;
-  overflow: hidden;
   height: 100vh;
+  font-family: 'Quicksand', sans-serif;
+  background: #000;
 }
 
-.mensaje {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  color: red;
-  animation: bajar 6s linear infinite;
+/* HEADER (10% de la pantalla) */
+.header {
+  height: 10vh;
+  background-color: #0e0e0e;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  gap: 14px;
 }
 
-@keyframes bajar {
-  from {
-    top: -100px;
-  }
-  to {
-    top: 100vh;
-  }
+/* LOGO */
+.logo {
+  height: 40px;
+  width: auto;
 }
 
-.mensaje-body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  background: radial-gradient(circle at center, #1a0000, #000);
-  font-family: 'Impact', 'Arial Black', sans-serif;
+/* TEXTO CUBO */
+.title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-/* Fondo animado tipo humo/alerta */
-.bg {
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,0,0,0.08) 0px,
-      rgba(255,0,0,0.08) 2px,
-      transparent 2px,
-      transparent 8px
-    );
-  animation: bgMove 10s linear infinite;
-  z-index: 0;
+/* MAIN (90% restante) */
+.main {
+  height: 90vh;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes bgMove {
-  from { background-position: 0 0; }
-  to   { background-position: 400px 400px; }
+/* IMAGEN CENTRAL */
+.center-image {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
 }
 
-/* Texto principal */
-.mensaje {
-  position: absolute;
-  top: -30%;
-  width: 100%;
-  text-align: center;
-  font-size: clamp(3rem, 6vw, 6rem);
-  letter-spacing: 4px;
-  z-index: 1;
-  animation: bajarSuave 6s ease-in-out infinite;
+.logo,
+.center-image {
+  filter: invert(1);
 }
 
-/* Movimiento de arriba hacia abajo */
-@keyframes bajarSuave {
-  0%   { top: -30%; opacity: 0; }
-  20%  { opacity: 1; }
-  50%  { top: 35%; }
-  80%  { opacity: 1; }
-  100% { top: 110%; opacity: 0; }
+.logo {
+  height: clamp(200px, 5vh, 150px);
+  width: auto;
+  filter: invert(1);
 }
 
-/* Efecto neón + parpadeo leve */
-.neon {
-  color: #ff2a2a;
-  text-shadow:
-    0 0 10px #ff2a2a,
-    0 0 20px #ff0000,
-    0 0 40px #ff0000,
-    0 0 80px #800000;
-  animation: bajarSuave 6s ease-in-out infinite,
-             flicker 1.5s infinite alternate;
-}
-
-@keyframes flicker {
-  from { opacity: 1; }
-  to   { opacity: 0.85; }
-}
